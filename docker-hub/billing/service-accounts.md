@@ -4,45 +4,32 @@ keywords: Docker, Docker Hub, subscription, service account
 title: Service Accounts
 ---
 
-You can manage your Docker Hub subscription anytime by adding seats to your plan. If you add seats to your plan in the middle of your billing cycle, a prorated amount will be charged for the additional seats.
-
-## Add seats to a monthly plan
+A service account is a Docker ID used for automated management of container images or containerized applications. Service accounts are typically used in automated workflows, and do not share Docker IDs with the members in the Team plan. Common use cases for this include mirroring content on Docker Hub, or tying in image pulls from your CI/CD process.
 
 > **Note:**
->
-> You must be a member of the ‘Owners’ team to add seats to your organization.
+> 
+> Service accounts included with the Team plan are limited to 15,000 pulls per day.  If you require a higher number of pulls, you may purchase an **Enhanced Service Account add-on.**
+ 
+## Enhanced Service Account Add-On Pricing
+| Tier | Pull Rates Per Day* | Annual Fee |
+| ------ | ------ | ------ | 
+| 1 | 15-50k | $9,950/yr |  
+| 2 | 50-150k | $17,950/yr |
+| 3 | 150k-500k | $60,000/yr |
+| 4 | 500k+ | Tier 4+ $60k/yr/500k Pull increment | 
 
-To add seats to a monthly plan:
+<sub>*Once the initial Tier is established, that is the minimum fee for the year.  Annual commitment required.  The service account may exceed Pulls by up to 25% for up to 20 days during the year without incurring additional fees.  Reports on consumption will be provided upon request.  At the end of the initial 1-year term, the appropriate Tier will be established for the following year.<sub>
+ 
+## How a Pull is defined:
 
-1. Log into your [Docker Hub](https://hub.docker.com){: target="_blank" rel="noopener" class="_"} account.
+- A pull request is defined as up to two `GET` requests on registry manifest URLs (`/v2/*/manifests/*`).
+- A normal image pull makes a single manifest request.
+- A pull request for a multi-arch image makes two manifest requests.
+- `HEAD` requests are not counted.
+- Limits are applied based on the user doing the pull, and not based on the image being pulled or its owner.
 
-2. Navigate to **Organizations** from the menu at the top of the page and then choose your organization.
 
-3. Select the **Billing** tab and click **Add seats**.
+Additional information can be found in our documentation pages:
+- https://docs.docker.com/registry/recipes/mirror/
+- https://docs.docker.com/docker-hub/repos/#service-accounts
 
-4. Specify the number of seats you’d like to add and click **Purchase**.
-
-5. The **Billing** tab displays the number of seats currently in use.
-
-6. Navigate to the **Members** tab to add new members. For more information, see [Add a member to a team](../orgs.md#add-a-member-to-a-team).
-
-## Add seats to an annual plan
-
-> **Note:**
->
-> - You can only add monthly seats after purchasing your annual plan.
-> - When you add seats to your plan in the middle of your billing cycle, a prorated amount will be charged for the additional seats.
-
-To add monthly seats to an annual plan:
-
-1. Log into your [Docker Hub](https://hub.docker.com){: target="_blank" rel="noopener" class="_"} account.
-
-2. Navigate to **Organizations** from the menu at the top of the page and then choose your organization.
-
-3. Select the **Billing** tab and click **Add seats**.
-
-4. Specify the number of seats you’d like to add and click **Purchase**.
-
-5. The **Billing** tab displays the number of seats currently in use.
-
-6. Navigate to the **Members** tab to add new members. For more information, see [Add a member to a team](../orgs.md#add-a-member-to-a-team).
